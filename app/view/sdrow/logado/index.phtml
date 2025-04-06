@@ -1,0 +1,280 @@
+<?php
+    $description = 'errado';
+    $path = 'errado';
+     if (isset($_FILES['imagem_post']) && isset($_SESSION['username']) && isset($_POST["description"])) {
+        $sendPost = false;
+        if ($_FILES['imagem_post']['error'] === UPLOAD_ERR_OK) {
+            $imagem = $_FILES["imagem_post"];
+            if($imagem['size'] > 2097152){ //2mb
+                echo 'Imagem muito grande! Máximo: 2MB';
+            }else{
+                $pasta = "upload/posts/";
+                $nome_imagem = $imagem['name'];
+                $extensao = strtolower(pathinfo($nome_imagem, PATHINFO_EXTENSION));
+                $nome_imagem_bd = uniqid() . '.' . $extensao;
+                $description = $_POST["description"];
+                $path = $pasta . $nome_imagem_bd;
+                echo 'description=' . $description . '/';
+                echo 'path=' . $path . '/0';
+                if($extensao != "jpg" && $extensao != "png" && $extensao != "JPEG" && $extensao != "jpeg"){
+                    echo 'Tipo de arquivo não aceito!';
+                }else{
+                    if (move_uploaded_file($imagem['tmp_name'], $path)) {
+                        echo 'Sucesso ao enviar o arquivo!';
+                    } else {
+                        echo 'Erro ao mover o arquivo para o diretório.';
+                    }
+                }
+            }
+        } else {
+            echo "Erro no upload do arquivo!";
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sdrow</title>
+    <link rel="shortcut icon" href="../misc/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../misc/css/style.css">
+    <link rel="stylesheet" href="../misc/css/bottombar.css">
+    <link rel="stylesheet" href="../misc/css/sidebar.css">
+    <link rel="stylesheet" href="../misc/css/modal_comments.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <script src="https://kit.fontawesome.com/8715f0f9da.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="siderbar-side-top">
+            <div class="sidebar-top">
+                <div class="logo">
+                    <img src="../misc/imagens/logos/icone.png" alt="">
+                    <span>Sdrow</span>
+                </div>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-img">
+                    <img src="<?=($dadosUsuario->foto == '') ? '../misc/imagens/semFoto.png' : $dadosUsuario->foto?>" alt="Imagem Usuário" class="user-img">
+                    <a href="perfil/<?=$dadosUsuario->username?>" class = "user-behind-perfil">
+                        <span class="bold">Perfil</span>
+                    </a>
+                </div> 
+                <div>
+                    <p class="bold user-title"><?=ucfirst(strtolower($dadosUsuario->nome))?></p>
+                    <p class="user-username" data-username = "<?=$dadosUsuario->username?>">@<?=$dadosUsuario->username?></p>
+                </div>
+            </div>
+                      
+            <ul class="sidebar-list">
+                <li>
+                    <a href="" class="home">
+                        <i class="material-symbols-outlined">home</i>
+                        <span class="nav-item">Início</span>
+                    </a>
+                    <span class="tooltip">Início</span>
+                </li>
+                <li>
+                    <a href="sdrow/feed.html" class="premium">
+                        <i class="material-symbols-outlined">token</i>
+                        <span class="nav-item" id="plano">Premium</span>
+                    </a>
+                    <span class="tooltip">Premium</span>
+                </li>
+                <li>
+                    <a href="#" class="mensagens">
+                        <i class="material-symbols-outlined">mail</i>
+                        <span class="nav-item">Mensagens</span>
+                    </a>
+                    <span class="tooltip">Mensagens</span>
+                </li>
+                <li>
+                    <a href="notificacoes" class="notificacoes">
+                        <i class="material-symbols-outlined">notifications</i>
+                        <span class="nav-item">Notificações</span>
+                    </a>
+                    <span class="tooltip">Notificações</span>
+                </li>
+                <li>
+                    <a href="configuracoes" class="configuracoes">
+                        <i class="material-symbols-outlined">settings</i>
+                        <span class="nav-item">Configurações</span>
+                    </a>
+                    <span class="tooltip">Configurações</span>
+                </li>
+                <li class="list-publicar">
+                    <a href="" class="btnPublicar">
+                        <i class="material-symbols-outlined">send</i>
+                        <span class="nav-item">Publicar</span>
+                    </a>
+                    <span class="tooltip">Publicar</span>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-side-bottom">
+            <ul class="sidebar-list">
+                <li class="list-publicar">
+                    <a href="" class="btnLogout">
+                        <i class="material-symbols-outlined">logout</i>
+                        <span class="nav-item">Sair</span>
+                    </a>
+                    <span class="tooltip">Sair</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class ="search_profile_main">
+                    <input type="text" class="search-txt-main" name="" id="" placeholder="@username">
+                    <div class="box-search-btn">
+                        <i class="material-symbols-outlined search-btn-main">search</i>
+                    </div>
+            </div>
+            <?php
+                use GRAM\MVPGram;
+                $gram = new MVPGram();
+
+                if(isset($posts)):
+                    foreach($posts as $post):
+                        
+            ?> 
+                        
+                        <div class="card-post">
+                            <section class="card-post-top">
+                                <div class="card-post-user">
+                                    <div class="card-post-user-info">
+                                        <img src="<?=($post->imagemUsuario == '') ? '../misc/imagens/semFoto.png' : $post->imagemUsuario?>" alt="Imagem usuário" class="user-post-img">
+                                        <p class="user-post-username bold"><?=$post->username;?></p>
+                                    </div>
+                                    <div class="card-post-user-more">
+                                        <button class="user-more-button" data-idPost="<?=$post->id?>" data-username="<?=$post->username?>" onclick="showOptions(this)"><i class="material-symbols-outlined more_options">more_horiz</i></button>
+                                        <div class="options-box post<?=$post->id?>" id="optionsBox">
+                                            <ul>
+                                                <li onclick="copiarDesc(this)" data-desc="<?=$post->descricao?>">Copiar texto da publicação</li>
+                                                <li onclick="deletePost(this)" class="delete-post bold delete<?=$post->id?>" data-id="<?=$post->id?>"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="card-post-img" data-img="<?=$post->imagem;?>" data-idPost="<?=$post->id?>"></section>
+                            <section class="card-post-bottom">
+                                <article class="post-icons">
+                                    <div class="item item-like" data-idPost="<?=$post->id?>">
+                                        <i class="<?=($post->liked)>0 ? 'material-icons item-like-liked' : 'material-symbols-outlined';?>">import_contacts</i>
+                                    </div>
+
+                                    <div class="item item-comment">
+                                        <i class="fa-regular fa-comment icon btnComments" data-idPost="<?=$post->id?>"></i>
+                                    </div>
+
+                                    <div class="item item-share">
+                                        <i class="fa-regular fa-paper-plane icon"></i>
+                                    </div>
+                                </article>
+
+                                <article class="post-likes">
+                                    <p class="bold curtidas" data-idpost="<?=$post->id?>"><?=$gram::getQtdLikes($post->id)?> curtidas</p>
+                                </article>
+                                <article class="post-desc">
+                                    <p class="post-desc"> <span class="post-desc-user bold"><?=$post->username_usuario?></span> <?=$post->descricao;?></p>
+                                </article>
+                            </section>                
+                        </div>
+            <?php
+                    endforeach;
+                endif;
+            ?>
+            <a href="" class="btnPublicarPopup">
+                <i class="material-symbols-outlined">send_and_archive</i>
+            </a>
+        </div>
+        
+        <nav class="bottombar">
+            <ul class="bottombar-list">
+                <li class="active"><a href="#"><i class="material-symbols-outlined icon home">home</i></a></li>
+                <li><a href="sdrow/mensagens.html"><i class="material-symbols-outlined icon mail">mail</i></a></li>
+                <li><a href="#"><i class="material-symbols-outlined icon token">token</i></a></li>
+                <li><a href="notificacoes"><i class="material-symbols-outlined icon notifications">notifications</i></a></li>
+                <li><a href="configuracoes"><i class="material-symbols-outlined icon settings">settings</i></a></li>
+            </ul>
+        </nav>
+        <dialog class="dialog">
+            <div class="dialog-box-top">
+                <h2>Post</h2>
+                <i class="material-symbols-outlined close">close</i>
+            </div>
+            
+            <form method="POST" enctype="multipart/form-data" id="form-post">
+                <div class="dialog-box-mid">
+                    <label class="picture hovered" for="picture_input">
+                        <span class="picture_image bold"></span>
+                    </label>
+                    <input type="file" accept="image/*" id="picture_input" name="imagem_post">
+                </div>
+                <div class="dialog-box-bottom">
+                    <div class="box-descricao">
+                        <textarea name="description" maxlength="235" class="description" placeholder="Digite sua descrição..."></textarea>
+                    </div>
+                    <div class="btnEnviarPublicacao">
+                        <p class="error_img_msg"></p>
+                        <div class="box-count">
+                            <span class="char-count">235</span>
+                        </div>
+                        <button type="submit" class="sendPost" data-sendPost="<?=$sendPost?>" data-path="<?=$path?>" data-description="<?=$description?>">Publicar</button>
+                    </div>
+                </div>
+            </form>
+            
+        </dialog>
+
+        <dialog class="dialog_comments">
+            <div class="dialog_comments_container">
+                <div class="dialog_comments-left">
+                    <img src="../upload/posts/default.png" class="imagem-post">
+                </div>
+                
+                <div class="dialog_comments-right">
+                    <div class="comments-top">
+                        <div class="comments-top-user-info">
+                            <div class="comments-top-user-img">
+                                <img src="../upload/posts/default.png" alt=""class="imagem-user-post">
+                            </div>
+                            <p class="comments-top-username bold"></p>
+                        </div>
+                        <i class="material-symbols-outlined close_comments">close</i>
+                    </div>
+                    <div class="comments-mid">
+                        <div class="box-post-description">
+                            <p class="post-description"></p>
+                            <hr>
+                        </div>
+                        <div class="box-comments"></div>
+                    </div>
+                    <div class="comments-bottom">
+                        <textarea name="textarea-comment" class="textarea-comment" placeholder="Adicione seu comentário..." maxlength="235"></textarea>
+                        <div class="box-comment-public">
+                            <button type="submit" class="sendComment" data-username="<?=$dadosUsuario->username?>">Publicar</button>
+                            <p class="comment_char_count">235</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </div>
+
+    
+    <script src="../misc/js/bottombar.js"></script>
+    <script src="../misc/js/ajaxMVP.js"></script>
+    <script src="../misc/js/modal.js"></script>
+    <script src="../misc/js/modal_comments.js"></script>
+</body>
+    
+</html> 

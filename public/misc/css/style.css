@@ -1,0 +1,884 @@
+:root{
+    --dark-gray: #2D2D2F;
+    --blue: #4145C4;
+    --gray: #c2c1c1;
+    --light-gray: rgb(51, 51, 51);
+}
+
+@font-face {
+    font-family: 'Presley';
+    src: url('../fontes/presley/Presley.ttf') format('truetype'), url('../fontes/presley/Presley.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Chackra';
+    src: url('../fontes/chakra/ChakraPetch-Regular.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chackra';
+}
+
+body{
+    background-color: rgb(24, 24, 24);
+}
+
+.sidebar ul li .home{
+    background-color: white;
+    color: var(--blue);
+}
+
+.search_profile_main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 600px;
+    height: 35px;
+}
+
+
+.search-txt-main{
+    border: none;
+    outline: none;
+    height: inherit;
+    width: 94%;
+    padding: 0rem .6rem;
+    background-color: #2D2D2F;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+}
+
+.box-search-btn{
+    width: 6%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    background-color: var(--blue);
+}
+
+.search-btn-main{
+    color: white;
+    cursor: pointer;
+}
+
+.search-btn-main:hover{
+    transform: scale(1.1);
+}
+
+
+
+.card-post{
+    border: 1px solid var(--dark-gray);
+    background-color: transparent;
+    width: 600px;
+    height: 730px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    color: white;
+}
+
+.card-post-top{
+    height: 8%;
+    padding: .9rem;
+    width: 100%;
+}
+
+.card-post .card-post-top .card-post-user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-post .card-post-top .card-post-user .card-post-user-info{
+    display: flex;
+    align-items: center;
+}
+
+.card-post .card-post-top .card-post-user .card-post-user-more{
+    cursor: pointer;
+    user-select: none;
+}
+
+.card-post .card-post-top .card-post-user .user-more-button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: none;
+    margin: 0;
+}
+
+.card-post-user-more .options-box {
+    position: absolute;
+    background-color: var(--blue);
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px;
+    margin-top: 5px;
+    display: none;
+}
+
+.card-post-user-more .options-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-post-user-more .options-box li {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.card-post-user-more .options-box li:hover {
+    background-color: #4f54df;
+}
+
+.card-post-user-more .options-box  .delete-post{
+    color: red;
+}
+
+
+.card-post .card-post-top .card-post-user .user-post-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;  
+    border: 1px solid var(--dark-gray);
+}
+
+.card-post .card-post-top .card-post-user .user-post-username{
+    margin-left: .6rem;
+    font-size: 1.2rem;
+}
+
+
+.card-post .card-post-img{
+    height: 70%;
+    border-radius: 1px;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-post-bottom{
+    width: 100%;
+    height: 22%;
+}
+
+
+.card-post .card-post-bottom{
+    padding: 0rem 0rem 0rem .5rem;
+}
+
+.card-post .card-post-bottom .post-icons{
+    display: flex;
+}
+
+.card-post .card-post-bottom .post-icons .item{
+    margin-inline-end: .5rem;
+    cursor: pointer;
+}
+
+.card-post .card-post-bottom .post-icons .item i{
+    font-size: 1.3rem;
+    margin-top: .5rem;
+}
+
+.card-post .card-post-bottom .post-icons .item-like i{
+    font-size: 1.5rem;
+    margin-top: .4rem;
+    user-select: none;
+} 
+
+.item-like-liked{
+    color: var(--blue);
+}
+
+.card-post .card-post-bottom .post-likes p{
+    font-size: .9rem;
+}
+
+.card-post .card-post-bottom .post-desc{
+    margin-top: .1rem;
+    width: 100%;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background: #424242; /* Cor de fundo */
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px; /* Bordas arredondadas */
+    background-color: #5c5b5b;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #696969; /* Cor ao passar o mouse */
+}
+
+.btnPublicarPopup{
+    display: none;
+}
+
+.dialog{
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 800px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 1rem rgb(0 0 0/ .3);
+    border-radius: 20px;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+}
+
+.dialog::backdrop{
+    background-color: rgba(24, 24, 24, 0.711);
+}
+
+.dialog .dialog-box-top{
+    display: flex;
+    justify-content: space-between;
+    height: 48px; /*  6%  */
+}
+
+.dialog .dialog-box-top i{
+    cursor: pointer;
+}
+
+.dialog .dialog-box-top i:hover{
+    color: var(--blue);
+}
+
+.dialog .dialog-box-mid {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 2px dashed var(--blue);
+}
+
+.dialog .dialog-box-mid .picture{
+    width: inherit;
+    height: inherit;
+    /*background-color: rgb(100, 99, 99);*/
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+}
+
+.hovered:hover{
+    color: var(--blue);
+    background-color: rgb(90, 90, 90);
+}
+
+.dialog .dialog-box-mid #picture_input{
+    display: none;
+}
+
+
+.dialog .dialog-box-bottom{
+    height: 190px; /*  26%  */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dialog .dialog-box-bottom .box-descricao{
+    height: 80%;
+    width: 100%;
+}
+
+.dialog .dialog-box-bottom .box-descricao textarea{
+    border: none;
+    outline: none;
+    resize: none;
+
+    width: inherit;
+    
+    height: 100%;
+    padding: .5em;
+    font-size: 1.2rem;
+
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--blue);
+}
+
+.dialog .dialog-box-bottom .btnEnviarPublicacao{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dialog .dialog-box-bottom .btnEnviarPublicacao .error_img_msg{
+    color: red;
+    margin-right: 5px;
+}
+
+.dialog .dialog-box-bottom .btnEnviarPublicacao .box-count{
+    background-color: rgba(128, 128, 128, 0.361);
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    user-select: none;
+}
+
+.dialog .dialog-box-bottom .btnEnviarPublicacao span{
+    font-size: .8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.dialog .dialog-box-bottom .btnEnviarPublicacao button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 5px;
+    padding-inline: 8px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--blue);
+    user-select: none;
+}
+
+.dialog .dialog-box-bottom .btnEnviarPublicacao button:hover{
+    background-color: #494dd8;
+}
+
+@media(min-width: 920px) and (max-width: 1300px){
+    .card-post-user-more .options-box {
+        font-size: .6rem;
+        padding: 7px;
+    }
+
+    .card-post-user-more .options-box li {
+        padding: 4px 5px;
+    }
+}
+
+@media (min-width: 690px) and (max-width: 919px){
+    .card-post-user-more .options-box {
+        font-size: .5rem;
+        padding: 5px;
+        left: 80%;
+    }
+
+    .card-post-user-more .options-box li {
+        padding: 2px 3px;
+    }
+}
+
+@media (min-width: 430px) and (max-width: 689px){
+    .card-post-user-more .options-box {
+        font-size: .5rem;
+        padding: 5px;
+        left: 70%;
+    }
+
+    .card-post-user-more .options-box li {
+        padding: 2px 3px;
+    }
+}
+
+
+@media (max-width: 429px){
+    .card-post-user-more .options-box {
+        font-size: .4rem;
+        padding: 2px;
+        left: 70%;
+    }
+
+    .card-post-user-more .options-box li {
+        padding: 1px 2px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 800px){
+    .dialog{
+        width: 400px;
+        height: 600px;
+    }
+
+    .dialog .dialog-box-top{
+        display: flex;
+        justify-content: space-between;
+        height: 25px; /*  6%  */
+    }
+
+    .dialog .dialog-box-top h2{
+        font-size: .9rem;
+    }
+
+     .dialog .dialog-box-top i{
+        font-size: 1rem;
+     }
+
+
+    .dialog .dialog-box-mid{
+        height: 350px; /*  63%  */
+        margin-bottom: 1.5rem;
+        background-size: contain;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        border: 1px dashed var(--blue);
+    }
+
+    .dialog .dialog-box-mid .img-publicacao{
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .dialog .dialog-box-bottom{
+        height: 160px; /*  26%  */
+    }
+
+    .dialog .dialog-box-bottom .btnEnviarPublicacao .error_img_msg{
+        font-size: .8rem;
+    }
+
+    .dialog .dialog-box-bottom .box-descricao textarea{
+        font-size: .8rem;
+    }
+    
+    .dialog .dialog-box-bottom .btnEnviarPublicacao .box-count{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    
+    .dialog .dialog-box-bottom .btnEnviarPublicacao span{
+        font-size: .7rem;
+    }
+    
+    .dialog .dialog-box-bottom .btnEnviarPublicacao button{
+        font-size: .8rem;
+    }
+    
+}
+
+@media (max-width: 479px){
+    .dialog{
+        width: 350px;
+        height: 500px;
+        left: 50%;
+        top: 44%;
+    }
+
+    .dialog .dialog-box-top{
+        display: flex;
+        justify-content: space-between;
+        height: 20px; /*  6%  */
+    }
+
+    .dialog .dialog-box-top h2{
+        font-size: .9rem;
+    }
+
+     .dialog .dialog-box-top i{
+        font-size: 1rem;
+     }
+
+
+    .dialog .dialog-box-mid{
+        height: 320px; /*  63%  */
+        margin-bottom: 1rem;
+        object-fit: cover;
+        object-position: center;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        border: 1px dashed var(--blue);
+
+        font-size: 0.7rem;
+    }
+
+    .dialog .dialog-box-mid .img-publicacao{
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .dialog .dialog-box-bottom{
+        height: 110px; /*  26%  */
+    }
+
+    .dialog .dialog-box-bottom .btnEnviarPublicacao .error_img_msg{
+        font-size: .6rem;
+    }
+
+    .dialog .dialog-box-bottom .box-descricao textarea{
+        font-size: .5rem;
+    }
+
+    .dialog .dialog-box-bottom .btnEnviarPublicacao .box-count{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    
+    .dialog .dialog-box-bottom .btnEnviarPublicacao span{
+        font-size: .7rem;
+    }
+    
+    .dialog .dialog-box-bottom .btnEnviarPublicacao button{
+        font-size: .8rem;
+    }
+}
+
+
+/*POST*/
+@media (min-width: 436px) and (max-width: 729px){
+    .card-post{
+        width: 400px;
+        height: 550px;
+        margin-bottom: 3rem;
+    }
+
+    .card-post-top{
+        padding: .3rem;
+    }
+
+    .card-post .card-post-top .card-post-user .user-post-img{
+        width: 32px;
+        height: 32px;
+    }
+
+    .card-post .card-post-top .card-post-user .user-post-username{
+        margin-left: .6rem;
+        font-size: 1rem;
+    }
+
+    .card-post .card-post-bottom{
+        padding: 0rem 0rem 0rem .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item{
+        margin-inline-end: .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item i{
+        font-size: 1rem;
+        margin-top: .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item-like i{
+        font-size: 1.28rem;
+        margin-top: .4rem;
+    }   
+
+    .card-post .card-post-bottom .post-likes p{
+        font-size: .6rem;
+    }
+
+    .card-post .card-post-bottom .post-desc{
+        font-size: .72rem;
+        margin-top: .1rem;
+        width: 100%;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    
+    .search_profile_main{
+        width: 400px;
+        height: 33px;
+    }
+
+
+    .search-txt-main{
+        width: 90%;
+    }
+
+    .box-search-btn{
+        width: 10%;
+    }
+
+}
+
+@media (min-width: 336px) and (max-width: 435px){
+    .card-post{
+        width: 300px;
+        height: 450px;
+        margin-bottom: 2.5rem;
+    }
+
+    .card-post-top{
+        padding: .3rem;
+    }
+
+    .card-post .card-post-top .card-post-user .user-post-img{
+        width: 25px;
+        height: 25px;
+    }
+
+    .card-post .card-post-top .card-post-user .user-post-username{
+        margin-left: .4rem;
+        font-size: .8rem;
+    }
+
+    .card-post .card-post-bottom{
+        padding: 0rem 0rem 0rem .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item{
+        margin-inline-end: .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item i{
+        font-size: .7rem;
+        margin-top: .4rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item-like i{
+        font-size: .9rem;
+        margin-top: .3rem;
+    }   
+
+    .card-post .card-post-bottom .post-likes p{
+        font-size: .6rem;
+    }
+
+    .card-post .card-post-bottom .post-desc{
+        font-size: .58rem;
+        margin-top: .1rem;
+        width: 100%;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    
+    .search_profile_main{
+        margin-bottom: 17px;
+        width: 300px;
+        height: 28px;
+    }
+
+
+    .search-txt-main{
+        width: 90%;
+        font-size: .6rem;
+    }
+
+    .box-search-btn{
+        width: 10%;
+    }
+
+    .search-btn-main{
+        font-size: 1.1rem!important;
+    }
+
+    .search-btn-main:hover{
+        transform: scale(1.1);
+    }
+
+}
+
+@media (max-width: 335px){
+    .card-post{
+        width: 220px;
+        height: 350px;
+        margin-bottom: 2.5rem;
+    }
+
+    .card-post-top{
+        padding: .3rem;
+    }
+
+    .card-post .card-post-top .card-post-user .user-post-img{
+        width: 17px;
+        height: 17px;
+    }
+
+    .card-post .card-post-top .card-post-user .user-post-username{
+        margin-left: .2rem;
+        font-size: .5rem;
+    }
+
+    .card-post .card-post-bottom{
+        padding: 0rem 0rem 0rem .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item{
+        margin-inline-end: .5rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item i{
+        font-size: .6rem;
+        margin-top: .4rem;
+    }
+
+    .card-post .card-post-bottom .post-icons .item-like i{
+        font-size: .8rem;
+        margin-top: .3rem;
+    }   
+
+    .card-post .card-post-bottom .post-likes{
+        margin-top: -.2rem;
+    }
+
+    .card-post .card-post-bottom .post-likes p{
+        font-size: .5rem;
+        margin-top: 0px;
+    }
+
+    .card-post .card-post-bottom .post-desc{
+        font-size: .44rem;
+        margin-top: .1rem;
+    }
+
+    .search_profile_main{
+        margin-bottom: 17px;
+        width: 220px;
+        height: 25px;
+    }
+
+
+    .search-txt-main{
+        width: 88%;
+        font-size: .5rem;
+    }
+
+    .box-search-btn{
+        width: 12%;
+    }
+
+    .search-btn-main{
+        font-size: .8rem!important;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*Botão publicar Popup*/
+@media (min-width: 400px) and (max-width: 479px){
+    .btnPublicarPopup{
+        background-color: var(--blue);
+        border-radius: 50%;
+        color: white;
+        padding: .6rem;
+        display: block;
+        position: fixed;
+        left: 87%;
+    }
+
+    .btnPublicarPopup i{
+        font-size: 1.1rem;
+        margin: auto;
+    }
+}
+
+@media (min-width: 330px) and (max-width: 399px){
+    .btnPublicarPopup{
+        background-color: var(--blue);
+        border-radius: 50%;
+        color: white;
+        padding: .6rem;
+        display: block;
+        position: fixed;
+        left: 87%;
+    }
+
+    .btnPublicarPopup i{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 329px){
+    .btnPublicarPopup{
+        background-color: var(--blue);
+        border-radius: 50%;
+        color: white;
+        padding: .4rem;
+        display: block;
+        position: fixed;
+        left: 87%;
+    }
+
+    .btnPublicarPopup i{
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 479px) and (min-height: 1000px){
+    .btnPublicarPopup{
+        top: 85%;
+    }
+}
+
+@media (max-width: 479px) and (min-height: 900px) and (max-height: 999px){
+    .btnPublicarPopup{
+        top: 85%;
+    }
+}
+
+@media (max-width: 479px) and (min-height: 700px) and (max-height: 899px){
+    .btnPublicarPopup{
+        top: 82%;
+    }
+}
+
+@media (max-width: 479px) and (min-height: 600px) and (max-height: 799px){
+    .btnPublicarPopup{
+        top: 80%;
+    }
+}
+
+@media (max-width: 479px) and (min-height: 500px) and (max-height: 699px){
+    .btnPublicarPopup{
+        top: 75%;
+    }
+}
+
+@media (max-width: 479px) and (max-height: 499px){
+    .btnPublicarPopup{
+        top: 67%;
+    }
+}

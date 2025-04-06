@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cadastro</title>
+        <link rel="stylesheet" href="../misc/css/cadastro.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="shortcut icon" href="../misc/imagens/favicon.ico" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <section class="nav">
+                <img src="../misc/imagens/logos/4-semFundo.png" alt="logo sdrow">
+                <ul>
+                    <li id="titulo">Sdrow</li>
+                </ul>
+            </section>
+        </header>
+
+        <main>
+            <section id="box-login">
+                <article id="lblTop">
+                    <p id="lblTopTitle">Sdrow</p>
+                </article>
+                <img src="../misc/imagens/cadastro.png" alt="">
+
+                <article id="lblBottom">
+                    <p id="lblBottomTitle">Bem-Vindo</p>
+                    <p id="lblBottomText">Já possuí uma conta?</p>
+                    <a href="accounts/login" id="btnLogin">Entrar</a>
+                </article>
+            </section>
+
+            <section id="box-cadastro">
+                <h2>Cadastre-se</h2>
+                <form action="" id="form"  method="post" class="formCadastro">
+                    <div class="form-row form-input">
+                        <input type="text" required class="nomeInput" name="nome"> <br>
+                        <label for="" class="nomePlaceholder">Nome</label>
+                    </div>
+
+                    <div class="form-row form-input">
+                        <input type="text" required class="emailInput" name="email"> <br>
+                        <label for="" class="emailPlaceholder">Email</label>
+                    </div>
+
+                    <div class="form-row-duo form-input">
+                        <div class="form-row-tel">
+                            <input type="text" required class="telInput" name="telefone"> <br>
+                            <label for="" class="telPlaceholder">Telefone</label>
+                        </div>
+
+                        <div class="form-row-idade">
+                            <input type="number" min="12" required class="idadeInput" name="idade"> <br>
+                            <label for="" class="idadePlaceholder">Idade</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-input">
+                        <input type="text" required class="usuarioInput" name="username"> <br>
+                        <label for="" class="usuarioPlaceholder">Nome de Usuario</label>
+                    </div>
+
+                    <div class="form-row form-input">
+                        <input type="password" required class="senhaInput" name="senha"> <br>
+                        <label for="" class="senhaPlaceholder">Senha</label>
+                    </div>
+
+                    <div class="form-row form-input">
+                        <input type="password" required class="confirmaSenhaInput" name="confirmarSenha"> <br>
+                        <label for="" class="confirmaSenhaPlaceholder">Confirme a senha</label> 
+                    </div>
+
+                    <p class="textError text-hidden"></p>
+                    <input type="submit" value="Cadastrar" class="cadastroBtn">
+                </form>
+
+                <p class="cadastrarCom">Cadastrar com</p>
+                <ul>
+                    <li><a href="#"><img src="../misc/imagens/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="../misc/imagens/google.png" alt="Google"></a></li>
+                    <li><a href="#"><img src="../misc/imagens/microsoft.png" alt="Microsoft"></a></li>
+                </ul>
+            </section>
+        </main>
+        <script src="/misc/js/ajax.js"></script>
+    </body>
+</html>

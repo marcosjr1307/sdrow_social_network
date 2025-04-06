@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><?php echo \JetPHP\Model\Config::show('TITULO'); ?></title>
+
+    <?php \JetPHP\Model\SEO::ready(); ?>
+    <link rel="stylesheet" href="../misc/css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="misc/imagens/favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+   <header>
+        <section class="nav">
+            <img src="misc/imagens/logos/4-semFundo.png" alt="logo sdrow">
+            <ul>
+                <li id="titulo">Sdrow</li>
+        </section>
+
+        <section class="cadastro">
+            <a href="accounts/register" class="btnCadastro">
+                Cadastrar
+                <i class="bi bi-person-plus"></i>
+            </a>
+        </section>
+    </header>
+    
+    <main>
+        <section class="box-left">
+            <img src="misc/imagens/imagemlogin.png" alt="Login">
+        </section>
+
+        <section class="box-right">
+            <h2>Login</h2>
+            <form action="" method="post" class="formLogin">
+                <div class="form-row form-row-usuario">
+                    <input type="text" required class="usuarioInput" name="username"> <br>
+                    <label for="" class="usuarioPlaceholder">Nome de usuário</label>
+                </div>
+                
+                <div class="form-row">
+                    <input type="password" required class="senhaInput" name="senha"> <br>
+                    <label for="" class="senhaPlaceholder">Senha</label>
+                </div>
+
+                <p class="esqueceuSenha"><a href="#">Esqueceu sua senha?</a></p>
+
+                <p class="textError text-hidden">Username ou login Incorretos</p>
+                <input type="submit" value="Entrar" class="loginBtn">
+            </form>
+            <p class="semConta">Não tem uma conta? <a href="accounts/register" class="cadastrar">Cadastrar-se</a></p>
+            <p class="logarCom">Logar com</p>
+            <ul>
+                <li><a href="#"><img src="misc/imagens/facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="misc/imagens/google.png" alt="Google"></a></li>
+                <li><a href="#"><img src="misc/imagens/microsoft.png" alt="Microsoft"></a></li>
+            </ul>
+        </section>
+    </main>
+    <script src="/misc/js/ajax.js"></script>
+  </body>
+</html>

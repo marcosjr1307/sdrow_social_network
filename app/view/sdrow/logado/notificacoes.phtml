@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sdrow</title>
+    <link rel="shortcut icon" href="../misc/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../misc/css/style.css">
+    <link rel="stylesheet" href="../misc/css/bottombar.css">
+    <link rel="stylesheet" href="../misc/css/sidebar.css">
+    <link rel="stylesheet" href="../misc/css/notificacoes.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <script src="https://kit.fontawesome.com/8715f0f9da.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="siderbar-side-top">
+            <div class="sidebar-top">
+                <div class="logo">
+                    <img src="../misc/imagens/logos/icone.png" alt="">
+                    <span>Sdrow</span>
+                </div>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-img">
+                    <img src="<?=($dadosUsuario->foto == '') ? '../misc/imagens/semFoto.png' : $dadosUsuario->foto?>" alt="Imagem Usuário" class="user-img">
+                    <a href="perfil/<?=$dadosUsuario->username?>" class = "user-behind-perfil">
+                        <span class="bold">Perfil</span>
+                    </a>
+                </div> 
+                <div>
+                    <p class="bold user-title"><?=ucfirst(strtolower($dadosUsuario->nome))?></p>
+                    <p class="user-username" data-username = "<?=$dadosUsuario->username?>">@<?=$dadosUsuario->username?></p>
+                </div>
+            </div>
+                      
+            <ul class="sidebar-list">
+                <li>
+                    <a href="/" class="home">
+                        <i class="material-symbols-outlined">home</i>
+                        <span class="nav-item">Início</span>
+                    </a>
+                    <span class="tooltip">Início</span>
+                </li>
+                <li>
+                    <a href="sdrow/feed.html" class="premium">
+                        <i class="material-symbols-outlined">token</i>
+                        <span class="nav-item" id="plano">Premium</span>
+                    </a>
+                    <span class="tooltip">Premium</span>
+                </li>
+                <li>
+                    <a href="#" class="mensagens">
+                        <i class="material-symbols-outlined">mail</i>
+                        <span class="nav-item">Mensagens</span>
+                    </a>
+                    <span class="tooltip">Mensagens</span>
+                </li>
+                <li>
+                    <a href="notificacoes" class="notificacoes">
+                        <i class="material-symbols-outlined">notifications</i>
+                        <span class="nav-item">Notificações</span>
+                    </a>
+                    <span class="tooltip">Notificações</span>
+                </li>
+                <li>
+                    <a href="configuracoes" class="configuracoes">
+                        <i class="material-symbols-outlined">settings</i>
+                        <span class="nav-item">Configurações</span>
+                    </a>
+                    <span class="tooltip">Configurações</span>
+                </li>
+                <li class="list-publicar list-btn-publicar">
+                    <a href="" class="btnPublicar">
+                        <i class="material-symbols-outlined">send</i>
+                        <span class="nav-item">Publicar</span>
+                    </a>
+                    <span class="tooltip">Publicar</span>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-side-bottom">
+            <ul class="sidebar-list">
+                <li class="list-publicar">
+                    <a href="" class="btnLogout">
+                        <i class="material-symbols-outlined">logout</i>
+                        <span class="nav-item">Sair</span>
+                    </a>
+                    <span class="tooltip">Sair</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class ="search_profile_main">
+                    <input type="text" class="search-txt-main" name="" id="" placeholder="@username">
+                    <div class="box-search-btn">
+                        <i class="material-symbols-outlined search-btn-main">search</i>
+                    </div>
+            </div>
+            <?php
+                if($dadosFollowers != 0){
+                    foreach($dadosFollowers as $follower){
+            ?>
+                        <div class="box-notificacao">
+                            <div class="notificacao-img">
+                                <img src="<?=($follower->foto == '') ? '../misc/imagens/semFoto.png' : $follower->foto?>" alt="" class="notificacao-user-img">
+                            </div>
+
+                            <div class="box-notificacao-txt">
+                                <p class="notificacao-txt">
+                                    <span class="notificacao-txt-username bold"><?=$follower->username?></span>
+                                    <span class="notificacao-txt-message">seguiu você</span>
+                                </p>
+                                <i class="material-icons">person_add</i>
+                            </div>
+                        </div>
+            <?php
+                    }
+                }
+            ?>
+            <?php
+                if($dadosLikes != 0){
+                    foreach($dadosLikes as $like){ 
+                        if($dadosUsuario->username != $like->username_usuario)  {                
+            ?>
+                            <div class="box-notificacao">
+                                <div class="notificacao-img">
+                                    <img src="<?=($like->foto == '') ? '../misc/imagens/semFoto.png' : $like->foto?>" alt="" class="notificacao-user-img">
+                                </div>
+
+                                <div class="box-notificacao-txt">
+                                    <p class="notificacao-txt">
+                                        <span class="notificacao-txt-username bold"><?=$like->username_usuario?></span>
+                                        <span class="notificacao-txt-message">curtiu a sua publicação</span>
+                                    </p>
+                                    <i class="material-icons">import_contacts</i>
+                                </div>
+                            </div>
+            <?php
+                        }
+                    }
+                }
+                if($dadosComments != 0){
+                    foreach($dadosComments as $comment){
+                        if($dadosUsuario->username != $comment->username_usuario){
+            ?>
+                            <div class="box-notificacao">
+                                <div class="notificacao-img">
+                                    <img src="<?=($comment->foto == '') ? '../misc/imagens/semFoto.png' : $comment->foto?>" alt="" class="notificacao-user-img">
+                                </div>
+
+                                <div class="box-notificacao-txt">
+                                    <p class="notificacao-txt">
+                                        <span class="notificacao-txt-username bold"><?=$comment->username_usuario?></span>
+                                        <span class="notificacao-txt-message">comentou na sua publicação</span>
+                                    </p>
+                                    <i class="fa-regular fa-comment"></i>
+                                </div>
+                            </div>
+
+            <?php  
+                        }
+                    }
+                }
+            ?>
+        </div>
+        
+        <nav class="bottombar">
+            <ul class="bottombar-list">
+                <li><a href="/"><i class="material-symbols-outlined icon home">home</i></a></li>
+                <li><a href="sdrow/mensagens.html"><i class="material-symbols-outlined icon mail">mail</i></a></li>
+                <li><a href="#"><i class="material-symbols-outlined icon token">token</i></a></li>
+                <li class="active"><a href="notificacoes"><i class="material-symbols-outlined icon notifications">notifications</i></a></li>
+                <li><a href="configuracoes"><i class="material-symbols-outlined icon settings">settings</i></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <script src="../misc/js/bottombar.js"></script>
+    <script src="../misc/js/ajaxMVP.js"></script>
+</body>
+    
+</html> 

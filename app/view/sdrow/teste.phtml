@@ -1,0 +1,17 @@
+asdas
+<?php
+use JetPHP\Model\Config;
+use JetPHP\Model\DB;
+
+// Adicione as configurações do banco de dados
+try {
+    $db = DB::getInstance();
+    if ($db::connect()) {
+        echo "Conexão bem-sucedida!";
+    } else {
+        echo "Falha na conexão.";
+    }
+} catch (\PDOException $e) {
+    echo "Erro ao conectar no banco de dados: " . $e->getMessage();
+}
+?>

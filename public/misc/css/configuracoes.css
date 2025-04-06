@@ -1,0 +1,617 @@
+:root{
+    --dark-gray: #2D2D2F;
+    --blue: #4145C4;
+    --gray: #c2c1c1;
+    --light-gray: rgb(51, 51, 51);
+}
+
+@font-face {
+    font-family: 'Presley';
+    src: url('../fontes/presley/Presley.ttf') format('truetype'), url('../fontes/presley/Presley.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Chackra';
+    src: url('../fontes/chakra/ChakraPetch-Regular.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chackra';
+}
+
+body{
+    background-color: rgb(24, 24, 24);
+}
+
+
+.home{
+    background-color: transparent!important;
+}
+
+.home i, .home span{
+    color: white;
+}
+
+.home:hover{
+    background-color: white!important;
+    color: var(--blue)!important;
+}
+
+.home:hover > i, .home:hover > span{
+    color: var(--blue);
+}
+
+.configuracoes{
+    background-color: white;
+}
+
+.configuracoes i, .configuracoes span{
+    color: var(--blue) ;
+}
+
+.list-btn-publicar{
+    display: none;
+}
+
+.box-configuracoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 1300px;
+    height: 800px;
+    background-color: var(--light-gray);
+    border-radius: 50px;
+}
+
+
+.box-configuracoes-left{
+    height: inherit;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+}
+.box-configuracoes-left img{
+    width: 500px;
+    user-select: none;
+}
+
+
+.box-configuracoes-right{
+    height: inherit;
+    width: 60%;
+}
+
+.configuracoes-user-info{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+
+.configuracoes-user-info .configuracoes-user-img{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.configuracoes-user-info .configuracoes-user-img img{
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    object-fit: cover;
+    border: 1px solid var(--blue);
+}
+
+
+.configuracoes-user-info .configuracoes-user-dados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.configuracoes-user-dados .user-dados-username{
+    text-align: center;
+    color: var(--blue);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.configuracoes-user-dados .user-dados-username p{
+    margin-bottom: 8px;
+}
+
+.configuracoes-user-dados .user-dados-username input{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: .4rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    width: 500px;
+}
+
+
+.configuracoes-user-dados .user-dados-descricao{
+    text-align: center;
+    color: var(--blue);
+    font-size: 1.2rem;
+}
+
+.configuracoes-user-dados .user-dados-descricao p{
+    margin-bottom: 8px;
+}
+
+.configuracoes-user-dados .user-dados-descricao input{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: .4rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    width: 500px;
+}
+
+.msg-error{
+    color: red;
+    font-size: 1rem;
+}
+
+.msg-error-img{
+    color: red;
+    font-size: 1rem;
+}
+
+.configuracoes-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.configuracoes-btn button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: .6rem;
+    border-radius: 50px;
+    color: white;
+    background-color: var(--blue);
+}
+
+.configuracoes-btn .btn-altera-foto{
+    margin-left: 70px;
+}
+
+.configuracoes-btn .btn-salvar{
+    margin-right: 50px;
+}
+
+.configuracoes-btn button:hover{
+    font-weight: bold;
+}
+
+hr{
+    margin-top: 30px;
+    width: 94%;
+    margin-inline: auto;
+}
+
+.box-agradecimento{
+    text-align: center;
+    margin-top: 20px;
+    user-select: none;
+}
+
+.box-agradecimento .agradecimento-title{
+    font-size: 5rem;
+    font-family: 'Presley';
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.box-agradecimento .agradecimento-txt{
+    font-size: 2rem;
+    margin-top: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.excluir-conta{
+    margin-top: 100px;
+    text-align: center;
+    color: red;
+    font-weight: 1rem;
+    user-select: none;
+}
+
+.excluir-conta p{
+    cursor: pointer;
+}
+
+@media (min-width: 900px) and (max-width: 1600px){
+    .box-configuracoes{
+        margin-top: 20px;
+        width: 800px;
+        height: 700px;
+    }
+
+    .box-configuracoes-left img{
+        width: 400px;
+    }
+
+    .configuracoes-user-info .configuracoes-user-img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-top: 30px;
+    }
+    
+
+    .configuracoes-user-dados .user-dados-username input{
+        padding: .4rem;
+        width: 300px;
+    }
+    
+    .configuracoes-user-dados .user-dados-descricao input{
+        padding: .4rem;
+        width: 300px;
+    }
+
+    .msg-error{
+        font-size: .8rem;
+    }
+
+    .msg-error-img{
+        font-size: .8rem;
+    }
+    
+    
+
+    .configuracoes-btn .btn-altera-foto{
+        margin-left: 35px;
+    }
+    
+    .configuracoes-btn .btn-salvar{
+        margin-right: 25px;
+    }
+    
+
+    .box-agradecimento{
+        margin-top: 10px;
+    }
+    
+    .box-agradecimento .agradecimento-title{
+        font-size: 4rem;
+        font-family: 'Presley';
+        font-weight: bold;
+        color: var(--blue);
+    }
+    
+    .box-agradecimento .agradecimento-txt{
+        font-size: 1.2rem;
+        margin-top: 5px;
+        font-weight: bold;
+        color: white;
+    }
+    
+}
+
+@media (min-width: 480px) and (max-width: 899px){
+    .box-configuracoes{
+        margin-top: 20px;
+        width: 400px;
+        height: 400px;
+    }
+
+    .box-configuracoes-left img{
+        width: 200px;
+    }
+
+    .configuracoes-user-info .configuracoes-user-img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-top: 30px;
+    }
+
+    .configuracoes-user-dados .user-dados-username{
+        font-size: .8rem;
+        margin-bottom: 5px;
+    }
+
+    .configuracoes-user-dados .user-dados-username p{
+        margin-bottom: 3px;
+    }
+
+    .configuracoes-user-dados .user-dados-descricao{
+        font-size: .8rem;
+    }
+
+    .configuracoes-user-dados .user-dados-descricao p{
+        margin-bottom: 3px;
+    }
+
+    .configuracoes-btn button{
+        font-size: .5rem;
+        padding: .4rem;
+    }
+
+    .configuracoes-user-dados .user-dados-username input{
+        padding: .3rem;
+        width: 150px;
+        font-size: .5rem;
+    }
+    
+    .configuracoes-user-dados .user-dados-descricao input{
+        padding: .3rem;
+        width: 150px;
+        font-size: .5rem;
+    }
+
+    .msg-error{
+        font-size: .6rem;
+    }
+
+    .msg-error-img{
+        text-align: center;
+        font-size: .6rem;
+    }
+    
+
+    .configuracoes-btn .btn-altera-foto{
+        margin-left: 12px;
+    }
+    
+    .configuracoes-btn .btn-salvar{
+        margin-right: 14px;
+    }
+    
+
+    .box-agradecimento{
+        margin-top: 10px;
+    }
+    
+    .box-agradecimento .agradecimento-title{
+        font-size: 2rem;
+        font-family: 'Presley';
+        font-weight: bold;
+        color: var(--blue);
+    }
+    
+    .box-agradecimento .agradecimento-txt{
+        font-size: .9rem;
+        margin-top: 5px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .excluir-conta, .excluir-conta i{
+        margin-top: 20px;
+        color: red;
+        font-weight: bold;
+        font-size: .8rem;
+    }
+}
+
+@media (min-width: 380px) and (max-width: 489px){
+    .box-configuracoes{
+        margin-top: 10px;
+        width: 350px;
+        height: 350px;
+    }
+
+    .box-configuracoes-left{
+        display: none;
+    }
+
+    .box-configuracoes-right{
+        width: 100%;
+    }
+
+    .configuracoes-user-info .configuracoes-user-img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-top: 30px;
+    }
+
+    .configuracoes-user-dados .user-dados-username{
+        font-size: .8rem;
+        margin-bottom: 5px;
+    }
+
+    .configuracoes-user-dados .user-dados-username p{
+        margin-bottom: 3px;
+    }
+
+    .configuracoes-user-dados .user-dados-descricao{
+        font-size: .8rem;
+    }
+
+    .configuracoes-user-dados .user-dados-descricao p{
+        margin-bottom: 3px;
+    }
+
+    .configuracoes-btn button{
+        font-size: .5rem;
+        padding: .4rem;
+    }
+
+    .configuracoes-user-dados .user-dados-username input{
+        padding: .3rem;
+        width: 200px;
+        font-size: .5rem;
+    }
+    
+    .configuracoes-user-dados .user-dados-descricao input{
+        padding: .3rem;
+        width: 200px;
+        font-size: .5rem;
+    }
+
+    .msg-error{
+        font-size: .6rem;
+    }
+
+    .msg-error-img{
+        font-size: .6rem;
+    }
+    
+
+    .configuracoes-btn .btn-altera-foto{
+        margin-left: 33px;
+    }
+    
+    .configuracoes-btn .btn-salvar{
+        margin-right: 30px;
+    }
+    
+    hr{
+        margin-top: 10px;
+    }
+
+    .box-agradecimento{
+        margin-top: 10px;
+    }
+    
+    .box-agradecimento .agradecimento-title{
+        font-size: 2rem;
+        font-family: 'Presley';
+        font-weight: bold;
+        color: var(--blue);
+    }
+    
+    .box-agradecimento .agradecimento-txt{
+        font-size: .8rem;
+        margin-top: 5px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .excluir-conta, .excluir-conta i{
+        margin-top: 20px;
+        color: red;
+        font-weight: bold;
+        font-size: .7rem;
+    }
+}
+
+
+@media (max-width: 379px){
+    .box-configuracoes{
+        margin-top: 10px;
+        width: 290px;
+        height: 290px;
+    }
+
+    .box-configuracoes-left{
+        display: none;
+    }
+
+    .box-configuracoes-right{
+        width: 100%;
+    }
+
+    .configuracoes-user-info .configuracoes-user-img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-top: 30px;
+    }
+
+    .configuracoes-user-dados .user-dados-username{
+        font-size: .8rem;
+        margin-bottom: 5px;
+    }
+
+    .configuracoes-user-dados .user-dados-username p{
+        font-size: .6rem;
+        margin-bottom: 3px;
+    }
+
+    .configuracoes-user-dados .user-dados-descricao{
+        font-size: .8rem;
+    }
+
+    .configuracoes-user-dados .user-dados-descricao p{
+        font-size: .6rem;
+        margin-bottom: 3px;
+    }
+
+    .configuracoes-btn button{
+        font-size: .5rem;
+        padding: .3rem;
+    }
+
+    .configuracoes-user-dados .user-dados-username input{
+        padding: .3rem;
+        width: 200px;
+        font-size: .4rem;
+    }
+    
+    .configuracoes-user-dados .user-dados-descricao input{
+        padding: .3rem;
+        width: 200px;
+        font-size: .4rem;
+    }
+
+    .msg-error{
+        font-size: .4rem;
+    }
+
+    .msg-error-img{
+        font-size: .4rem;
+    }
+    
+
+    .configuracoes-btn .btn-altera-foto{
+        margin-left: 14px;
+    }
+    
+    .configuracoes-btn .btn-salvar{
+        margin-right: 15px;
+    }
+    
+    hr{
+        margin-top: 10px;
+    }
+
+    .box-agradecimento{
+        margin-top: 10px;
+    }
+    
+    .box-agradecimento .agradecimento-title{
+        font-size: 1.5rem;
+        font-family: 'Presley';
+        font-weight: bold;
+        color: var(--blue);
+    }
+    
+    .box-agradecimento .agradecimento-txt{
+        font-size: .6rem;
+        margin-top: 5px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .excluir-conta, .excluir-conta i{
+        margin-top: 20px;
+        color: red;
+        font-weight: bold;
+        font-size: .5rem;
+    }
+}

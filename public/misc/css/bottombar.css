@@ -1,0 +1,297 @@
+:root{
+    --dark-gray: #2D2D2F;
+    --blue: #4145C4;
+    --gray: #c2c1c1;
+    --light-gray: rgb(51, 51, 51);
+}
+
+@font-face {
+    font-family: 'Presley';
+    src: url('../fontes/presley/Presley.ttf') format('truetype'), url('../fontes/presley/Presley.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Chackra';
+    src: url('../fontes/chakra/ChakraPetch-Regular.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chackra';
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.bottombar-list{
+    list-style: none;
+}
+
+nav{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: var(--blue);
+    right: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav :where(li, a){
+    position: relative;
+}
+
+nav ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    width: 80px;
+    height: 80px;
+    transition: all .3s ease-in-out;
+    color: white;
+}
+
+nav ul li a:hover{
+    color: var(--blue);
+}
+
+nav li a .icon{
+    font-size: 2rem;
+}
+
+
+/*Animações*/
+nav li::before, nav li::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 30px;
+}
+
+nav li.active::before{
+    left: -20px;
+    border-radius: 0 0 30px 0;
+}
+
+nav li.active::after{
+    right: -20px;
+    border-radius: 0 0 0 30px;
+}
+
+nav li.active::before, nav li.active::after{
+    background-color: var(--blue);
+    top: 1px;
+}
+
+nav li a::before, nav li a::after{
+    content: '';
+    position: absolute;
+    background-color: white;
+    z-index: -1;
+    border-radius: 1000px 1000px 0px 0px;
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    -webkit-transition: transform .3s, border-radius .5s; 
+    transition: transform .3s, border-radius .5s; 
+}
+
+nav li.active a::before, nav li.active a::after{
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+
+nav li.active a::before{
+   top: 10px;
+   left: 10px;
+   width: calc(100% - 20px);
+   height: 100%;
+   border-radius: 30px 30px 0 0;
+}
+
+
+nav li.active a::after{
+    left: -10px;
+    bottom: 0;
+    width: 100px;
+    height: 48px;
+} 
+
+nav li.active a{
+    color: var(--blue);
+}
+
+nav{
+    display: none;
+}
+
+@media (min-width: 400px) and (max-width: 479px){
+    nav{
+        display: block;
+    }
+    .container{
+        overflow: hidden!important;
+    }
+}
+
+@media (min-width: 330px) and (max-width: 399px){
+    nav{
+        display: block;
+        height: 8vh;
+    }
+
+    nav li a .icon{
+        font-size: 1rem;
+    }
+    
+    nav ul li a{
+        width: 70px;
+        height: 80px;
+        bottom: 10px;
+    }
+
+    /*Animações*/
+    nav li::before, nav li::after{
+        width: 20px;
+    }
+
+    nav li.active::before{
+        left: -10px;
+        border-radius: 50px 0 50px 0;
+    }
+
+    nav li.active::after{
+        right: -10px;
+        border-radius: 0 0 0 30px;
+    }
+
+    nav li.active a::before{
+        top: 17px;
+        left: 10px;
+        border-radius: 100px 100px 0 0; 
+    }
+
+    nav li.active a::after{
+        left: -10px;
+        bottom: -50px;
+        width: 100px;
+        height: 48px;
+    } 
+
+    .container{
+        overflow: hidden!important;
+    }
+}
+
+
+@media (min-width: 280px) and (max-width: 329px){
+    nav{
+        display: block;
+        height: 7vh;
+    }
+
+    nav li a .icon{
+        font-size: 1rem;
+    }
+    
+    nav ul li a{
+        width: 60px;
+        height: 80px;
+        bottom: 4px;
+    }
+
+    /*Animações*/
+    nav li::before, nav li::after{
+        width: 20px;
+    }
+
+    nav li.active::before{
+        left: -10px;
+        border-radius: 50px 0 50px 0;
+    }
+
+    nav li.active::after{
+        right: -10px;
+        border-radius: 0 0 0 30px;
+    }
+
+    nav li.active a::before{
+        top: 17px;
+        left: 10px;
+        border-radius: 100px 100px 0 0; 
+    }
+
+    nav li.active a::after{
+        left: -10px;
+        bottom: -50px;
+        width: 100px;
+        height: 48px;
+    }
+    .container{
+        overflow: hidden!important;
+    } 
+}
+
+
+@media (max-width: 279px){
+    nav{
+        display: block;
+        height: 7vh;
+    }
+
+    nav li a .icon{
+        font-size: 1rem;
+    }
+    
+    nav ul li a{
+        width: 50px;
+        height: 80px;
+        bottom: 3px;
+    }
+
+    /*Animações*/
+    nav li::before, nav li::after{
+        width: 20px;
+    }
+
+    nav li.active::before{
+        left: -10px;
+        border-radius: 50px 0 50px 0;
+    }
+
+    nav li.active::after{
+        right: -10px;
+        border-radius: 0 0 0 30px;
+    }
+
+    nav li.active a::before{
+        top: 17px;
+        left: 10px;
+        border-radius: 100px 100px 0 0; 
+    }
+
+    nav li.active a::after{
+        left: -10px;
+        bottom: -50px;
+        width: 100px;
+        height: 48px;
+    } 
+    .container{
+        overflow: hidden!important;
+    }
+}

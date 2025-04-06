@@ -1,0 +1,414 @@
+:root{
+    --dark-gray: #2D2D2F;
+    --blue: #4145C4;
+    --gray: #c2c1c1;
+    --light-gray: rgb(51, 51, 51);
+}
+
+@font-face {
+    font-family: 'Presley';
+    src: url('../fontes/presley/Presley.ttf') format('truetype'), url('../fontes/presley/Presley.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Chackra';
+    src: url('../fontes/chakra/ChakraPetch-Regular.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chackra';
+}
+
+body{
+    background-color: rgb(24, 24, 24);
+}
+
+
+.box-top-perfil{
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 1.5rem;
+}
+
+.box-perfil-img{
+    margin-right: 7rem;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.user-img-perfil{
+    position: absolute;
+    border-radius: 50%;
+    left: 0;
+    height: 0;
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+.box-perfil-info{
+    width: 60%;
+}
+
+.perfil-username{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.btnEditarPerfil, .btn{
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: .7rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.btnEditarPerfil:hover, .btn:hover{
+    margin: -1px;
+    border: 1px solid black;
+    background-color: #4f53c8;
+}
+
+.perfil-dados{
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.perfil-dados p{
+    margin-inline-end: 1.4rem;
+}
+
+.perfil-biografia p{
+    overflow-wrap: break-word;
+}
+
+.box-bottom-posts{
+    width: 900px;
+    margin-top: 5rem;
+}
+
+.bottom-options{
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+    user-select: none;
+}
+.option{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.option i{
+    margin-right: 8px;
+}
+
+.optionPosts{
+    color: blue;
+}
+
+.optionPostsCurtidos{
+    color: white;
+}
+
+.optionCurtidosCurtidos{
+    color: blue;
+}
+
+
+.group-post{
+    width: inherit;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;    
+}
+
+.post{
+    width: 420px;
+    height: 420px;
+    margin-bottom: 2rem;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.noPost{
+    width: inherit;
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+    font-size: 2rem;
+    user-select: none;
+}
+
+.noPost i{
+    font-size: 5rem;
+}
+
+
+
+
+@media (min-width: 1100px) and (max-width: 1165px){
+    .box-top-perfil{
+        width: 800px;
+        margin-top: 1.5rem;
+    } 
+    
+    .box-bottom-posts{
+        width: 800px;
+        margin-top: 5rem;
+    }
+    
+    .post{
+        width: 370px;
+        height: 370px;
+        background-color: black;
+    }
+}
+@media (min-width: 991px) and (max-width: 1099px){
+    .sidebar ul li:hover .tooltip{
+        display: none;
+    }
+}
+
+@media (min-width: 708px) and (max-width: 990px){
+    .sidebar ul li:hover .tooltip{
+        display: block;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 990px){ 
+    .box-top-perfil{
+        width: 350px;
+        margin-top: 1.5rem;
+    } 
+
+    .box-perfil-img{
+        width: 100px;
+        height: 100px;
+        margin-right: 1rem;
+    }
+
+    .box-perfil-info{
+        width: 60%;
+    }
+
+    .box-perfil-info p{
+        font-size: .6rem;
+    }
+
+    .perfil-username{
+        margin-bottom: .5rem;
+    }
+
+    .btnEditarPerfil, .btn{
+        padding: .4rem;
+        border-radius: 1.5rem;
+        font-size: .55rem;
+        cursor: pointer;
+    }
+
+    .perfil-dados{
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    .perfil-dados p{
+        margin-inline-end: .5rem;
+    }
+
+    .perfil-biografia p{
+        font-size: .5rem;
+    }
+
+    .box-bottom-posts{
+        width: 350px;
+        margin-top: 2.5rem;
+    }
+
+    .option{
+        font-size: .8rem;
+    }
+
+    .option i{
+        margin-right: 4px;
+        font-size: .8rem;
+    }
+
+    .post{
+        width: 160px;
+        height: 160px;
+        background-color: black;
+    }
+}
+
+@media (min-width: 345px) and (max-width: 479px){
+    .box-top-perfil{
+        width: 300px;
+    }
+
+    .box-perfil-img{
+        margin-right: 2rem;
+        width: 100px;
+        height: 100px;
+    }
+
+    .box-perfil-info{
+        width: 60%;
+        font-size: .5rem;
+    }
+
+    .perfil-username{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+    }
+
+    .btnEditarPerfil, .btn{
+        padding: .4rem;
+        font-size: .5rem;
+        border-radius: 1rem;
+    }
+
+    .perfil-dados{
+        display: flex;
+        margin-bottom: .6rem;
+    }
+
+    .perfil-dados p{
+        margin-inline-end: .5rem;
+    }
+
+    .box-bottom-posts{
+        width: 300px;
+        margin-top: 1.5rem;
+    }
+
+    .bottom-options{
+        margin-bottom: 1rem;
+        margin-top: .5rem;
+        font-size: .6rem;
+    }
+    .option{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .option i{
+        margin-right: 5px;
+        font-size: .9rem;
+    }
+
+    .group-post{
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;    
+    }
+
+    .post{
+        width: 300px;
+        height: 300px;
+        background-color: black;
+    }
+
+    .box-end{
+        margin-bottom: 5rem;
+    }
+}
+
+@media (max-width: 344px){
+    .box-top-perfil{
+        width: 230px;
+    }
+
+    .box-perfil-img{
+        margin-right: 2rem;
+        width: 70px;
+        height: 70px;
+    }
+
+    .box-perfil-info{
+        width: 60%;
+        font-size: .35rem;
+    }
+
+    .perfil-username{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: .2rem;
+    }
+
+    .btnEditarPerfil, .btn{
+        padding: .3rem;
+        font-size: .3rem;
+    }
+
+    .perfil-dados{
+        display: flex;
+        margin-bottom: .2rem;
+    }
+
+    .perfil-dados p{
+        margin-inline-end: .4rem;
+    }
+
+    .box-bottom-posts{
+        width: 230px;
+        margin-top: 1.5rem;
+    }
+
+    .bottom-options{
+        margin-bottom: .5rem;
+        margin-top: .5rem;
+        font-size: .4rem;
+    }
+    .option{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .option i{
+        margin-right: 5px;
+        font-size: .7rem;
+    }
+
+    .group-post{
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;    
+    }
+
+    .post{
+        width: 230px;
+        height: 230px;
+        background-color: black;
+    }
+
+    .box-end{
+        margin-bottom: 5rem;
+    }
+}
