@@ -39,11 +39,11 @@ and more other things, that other users can:
 💡***It's all like a social media, but it's a literature-focused environment!*** 📚 
 
 </div>
- 
+
  ### Technologies used
  When I started coding the social media I didn't have knowledge of more interesting programming languages, so I decided to use PHP. <br>
  I was going to use [laravel](https://laravel.com/), but I decided to use a framework that I found arround the internet called [JetPHP](https://github.com/jetphp), created by a developer named [Joao Artur](https://github.com/JoaoArtur). <br>
- The framework was simple and had some issues, but I changed some parts of it and used it to create the social media!
+ The framework was simple and had some issues, but I changed some parts of it and used it to create the social media! <br> <br>
  **Technologies:**
  - PHP
  - AJAX (Asynchronous JavaScript and XML)
